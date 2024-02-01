@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+    groups:
+      dependencies:
+        patterns:
+          - "*" # Group all dependencies together in a single PR
+    open-pull-requests-limit: 1 # Only allow 1 PR at a time (should be done automatically as updates are grouped)
