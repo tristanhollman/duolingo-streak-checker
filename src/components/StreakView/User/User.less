@@ -1,0 +1,65 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  .avatar {
+    width: 200px;
+    border-radius: 16px;
+  }
+}
+
+.streak-block {
+  position: relative;
+  width: 200px;
+  color: rgb(255, 255, 255);
+
+  .container {
+    border-radius: 16px;
+    display: flex;
+    overflow: hidden;
+    padding: 10px 5px;
+
+    background-color: rgb(255, 200, 0);
+    background-image: url("https://d35aaqx5ub95lt.cloudfront.net/images/profile/92bd1526f88a4bea08ff2d5ad9783311.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-color: rgb(255, 200, 0);
+    border-style: solid solid none;
+
+    .icon {
+      border-style: none;
+    }
+
+    .star-position-a {
+      position: absolute;
+      bottom: 8px;
+      height: 21px;
+      left: 18px;
+      width: 21px;
+    }
+    .star-position-b {
+      position: absolute;
+      height: 27px;
+      right: 12px;
+      top: 12px;
+      width: 27px;
+    }
+
+    .flame-position {
+      align-self: start;
+      margin-left: 10px;
+      width: 21px;
+      height: 40px;
+      width: 40px;
+    }
+
+    .streak-number-wrapper {
+      align-self: center;
+      flex: 1 0 auto;
+      text-align: left;
+    }
+  }
+}

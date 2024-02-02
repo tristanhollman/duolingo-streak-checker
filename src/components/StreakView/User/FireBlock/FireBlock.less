@@ -4,19 +4,20 @@
 
   position: relative;
   display: flex;
-  flex: 1;
   justify-content: center;
   align-items: center;
-  padding: var(--borderSize);
+  height: min-content;
+  width: min-content;
 
   &::before,
   &::after {
     content: "";
     position: absolute;
-    top: var(--borderSize);
+    // Slightly offset the top/left positioning as the wavy filter slightly shifts the border.
+    top: calc(var(--borderSize) - var(--borderWidth));
+    left: calc(var(--borderSize) - var(--borderWidth));
     right: var(--borderSize);
     bottom: var(--borderSize);
-    left: var(--borderSize);
   }
 
   &.enabled {
@@ -40,39 +41,38 @@
       animation: move 5s linear infinite;
     }
   }
+
+  .content {
+    padding: calc(var(--borderSize) * 2);
+  }
 }
 
 @keyframes move {
   0% {
     box-shadow:
-      0 0 var(--borderSize) #f00,
-      inset 0 0 var(--borderSize) #f00;
+      0 0 calc(0 * var(--borderWidth)) #f00,
+      inset 0 0 calc(0 * var(--borderWidth)) #f00;
   }
-  20% {
+  25% {
     box-shadow:
-      0 0 60px #f00,
-      inset 0 0 60px #f00;
+      0 0 calc(0.5 * var(--borderWidth)) #f00,
+      inset 0 0 calc(0.5 * var(--borderWidth)) #f00;
   }
 
-  40% {
+  50% {
     box-shadow:
-      0 0 40px #f00,
-      inset 0 0 40px #f00;
+      0 0 calc(1 * var(--borderWidth)) #f00,
+      inset 0 0 calc(1 * var(--borderWidth)) #f00;
   }
-  60% {
+  75% {
     box-shadow:
-      0 0 80px #f00,
-      inset 0 0 80px #f00;
-  }
-  80% {
-    box-shadow:
-      0 0 100px #f00,
-      inset 0 0 100px #f00;
+      0 0 calc(0.5 * var(--borderWidth)) #f00,
+      inset 0 0 calc(0.5 * var(--borderWidth)) #f00;
   }
   100% {
     box-shadow:
-      0 0 var(--borderSize) #f00,
-      inset 0 0 var(--borderSize) #f00;
+      0 0 calc(0 * var(--borderWidth)) #f00,
+      inset 0 0 calc(0 * var(--borderWidth)) #f00;
   }
 }
 

@@ -1,5 +1,5 @@
 import { useConfiguration } from "../../hooks/useConfiguration";
-import { StreakBlock } from "../StreakBlock/StreakBlock";
+import { User } from "./User/User";
 import "./StreakView.less";
 
 export const StreakView = () => {
@@ -9,7 +9,7 @@ export const StreakView = () => {
     <div className="container">
       <div className="streak-grid">
         {config?.userNames.map((userName) => (
-          <StreakBlock userName={userName} key={userName} />
+          <User userName={userName} key={userName} />
         ))}
       </div>
       <ResetConfigButton />
