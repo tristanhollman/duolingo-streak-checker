@@ -1,0 +1,82 @@
+.fire-block {
+  --borderWidth: 0.5em;
+  --borderSize: 1.5em;
+
+  position: relative;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: var(--borderSize);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: var(--borderSize);
+    right: var(--borderSize);
+    bottom: var(--borderSize);
+    left: var(--borderSize);
+  }
+
+  &.enabled {
+    &::before,
+    &::after {
+      border: var(--borderWidth) solid #ff2222;
+      filter: url(#wavy) blur(1px);
+    }
+
+    &::before {
+      box-shadow:
+        0 0 var(--borderSize) #f00,
+        inset 0 0 var(--borderSize) #f00;
+      animation: move 5s linear infinite;
+    }
+
+    &::after {
+      box-shadow:
+        0 0 calc(var(--borderWidth) / 2) #fff,
+        inset 0 0 var(--borderWidth) #fff;
+      animation: move 5s linear infinite;
+    }
+  }
+}
+
+@keyframes move {
+  0% {
+    box-shadow:
+      0 0 var(--borderSize) #f00,
+      inset 0 0 var(--borderSize) #f00;
+  }
+  20% {
+    box-shadow:
+      0 0 60px #f00,
+      inset 0 0 60px #f00;
+  }
+
+  40% {
+    box-shadow:
+      0 0 40px #f00,
+      inset 0 0 40px #f00;
+  }
+  60% {
+    box-shadow:
+      0 0 80px #f00,
+      inset 0 0 80px #f00;
+  }
+  80% {
+    box-shadow:
+      0 0 100px #f00,
+      inset 0 0 100px #f00;
+  }
+  100% {
+    box-shadow:
+      0 0 var(--borderSize) #f00,
+      inset 0 0 var(--borderSize) #f00;
+  }
+}
+
+svg {
+  width: 0;
+  height: 0;
+}

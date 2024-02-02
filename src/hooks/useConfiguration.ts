@@ -3,9 +3,9 @@ import { Config } from "../entities/config";
 
 export function useConfiguration() {
   const [config, setConfig] = useLocalStorage<Config>("config", {
-    userName: "",
+    userNames: [],
   });
-  const hasConfig = config.userName !== "";
+  const hasConfig = config.userNames.length > 0;
 
   return { hasConfig, config, setConfig };
 }

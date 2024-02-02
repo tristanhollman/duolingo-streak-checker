@@ -1,3 +1,3 @@
 export type Config = {
-  userName: string;
+  userNames: string[];
 };
