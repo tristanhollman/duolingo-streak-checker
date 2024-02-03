@@ -11,7 +11,8 @@ export function useUserData(userName: string) {
     queryKey: ["streakInfo", userName],
     queryFn: async () => {
       const response = await fetchWithProxy(
-        `https://www.duolingo.com/2017-06-30/users?username=${userName}`,
+        // The `v` query parameter is to prevent caching in the proxy that's being used.
+        `https://www.duolingo.com/2017-06-30/users?username=${userName}&v=${new Date().getTime()}`,
       );
       const result = (await response.json()) as DuolingoResponse;
       return result;
