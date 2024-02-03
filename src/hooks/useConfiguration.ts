@@ -1,11 +1,16 @@
 import { useLocalStorage } from "usehooks-ts";
-import { Config } from "../entities/models";
+import { Config, ConfigDto } from "../entities/models";
 
 export function useConfiguration() {
-  const [config, setConfig] = useLocalStorage<Config>("config", {
+  const [dto, persistConfigDto] = useLocalStorage<ConfigDto>("config", {
     userNames: [],
   });
-  const hasConfig = config.userNames.length > 0;
 
-  return { hasConfig, config, setConfig };
+  const persistConfig = (config: Config) => {
+    persistConfigDto({ userNames: config.userNames });
+  };
+
+  const config = new Config(dto);
+
+  return { config, persistConfig };
 }
