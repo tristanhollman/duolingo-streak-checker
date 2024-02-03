@@ -1,14 +1,14 @@
-import "./FireBlock.less";
+import "./FireBorder.less";
 
-type FireBlockProps = {
+type FireBorderProps = {
   children?: React.ReactNode;
   enabled: boolean;
 };
 
-export const FireBlock = (props: FireBlockProps) => {
+export const FireBorder = (props: FireBorderProps) => {
   return (
     <>
-      <div className={`fire-block ${props.enabled ? "enabled" : ""}`}>
+      <div className={`fire-border ${props.enabled ? "enabled" : ""}`}>
         <div className="content">{props.children}</div>
       </div>
       <svg>

@@ -1,6 +1,6 @@
 import { StreakData, useUserData } from "../../../hooks/useUserData";
 import { proxyify } from "../../../utilities";
-import { FireBlock } from "./FireBlock/FireBlock";
+import { FireBorder } from "./FireBorder/FireBorder";
 import "./User.less";
 
 type UserProps = {
@@ -20,7 +20,7 @@ export const User = (props: UserProps) => {
   const didLessonToday = didALessonToday(user.streakData);
 
   return (
-    <FireBlock enabled={didLessonToday}>
+    <FireBorder enabled={didLessonToday}>
       <div className="user">
         <h2>{user.name}</h2>
         <i>({user.courses[0]?.title})</i>
@@ -31,7 +31,7 @@ export const User = (props: UserProps) => {
         />
         <StreakBlock streak={user.streak} />
       </div>
-    </FireBlock>
+    </FireBorder>
   );
 };
 
