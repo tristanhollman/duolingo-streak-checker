@@ -1,4 +1,4 @@
-import { StreakData, useUserData } from "../../../hooks/useUserData";
+import { useUserData } from "../../../hooks/useUserData";
 import { proxyify } from "../../../utilities";
 import { FireBorder } from "./FireBorder/FireBorder";
 import "./User.less";
@@ -17,37 +17,20 @@ export const User = (props: UserProps) => {
     return <span>Failed to retrieve streak data...</span>;
   }
 
-  const didLessonToday = didALessonToday(user.streakData);
-
   return (
-    <FireBorder enabled={didLessonToday}>
+    <FireBorder enabled={user.streak.didALessonToday()}>
       <div className="user">
         <h2>{user.name}</h2>
-        <i>({user.courses[0]?.title})</i>
+        <i>({user.currentCourse?.title})</i>
         <img
           className="avatar"
           alt={user.name}
-          src={proxyify(user.picture.replace("//", "https://") + "/xxlarge")}
+          src={proxyify(user.pictureUrl)}
         />
-        <StreakBlock streak={user.streak} />
+        <StreakBlock streak={user.streak.days} />
       </div>
     </FireBorder>
   );
-};
-
-/**
- * Checks if a lesson was done today based on the streak information.
- * @param streakInfo - The streak information object.
- * @returns A boolean indicating whether a lesson was done today.
- */
-const didALessonToday = (streakData: StreakData): boolean => {
-  const streakInfo = streakData.currentStreak;
-  if (streakInfo) {
-    return (
-      new Date(streakInfo.endDate).getTime() >= new Date().setHours(0, 0, 0, 0)
-    );
-  }
-  return false;
 };
 
 type StreakBlockProps = {

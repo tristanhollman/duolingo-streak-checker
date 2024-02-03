@@ -1,5 +1,5 @@
 import { useLocalStorage } from "usehooks-ts";
-import { Config } from "../entities/config";
+import { Config } from "../entities/models";
 
 export function useConfiguration() {
   const [config, setConfig] = useLocalStorage<Config>("config", {
