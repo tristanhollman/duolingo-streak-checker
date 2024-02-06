@@ -2,7 +2,7 @@ import { useUserData } from "../../../hooks/useUserData";
 import { proxyify } from "../../../utilities";
 import { FireBorder } from "./FireBorder/FireBorder";
 import { StreakBlock } from "./StreakBlock/StreakBlock";
-import "./User.less";
+import styles from "./User.module.less";
 
 type UserProps = {
   userName: string;
@@ -20,11 +20,11 @@ export const User = (props: UserProps) => {
 
   return (
     <FireBorder enabled={user.streak.didALessonToday()}>
-      <div className="user">
+      <div className={styles.user}>
         <h2>{user.name}</h2>
         <i>({user.currentCourse?.title})</i>
         <img
-          className="avatar"
+          className={styles.avatar}
           alt={user.name}
           src={proxyify(user.pictureUrl)}
         />

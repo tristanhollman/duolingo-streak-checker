@@ -1,8 +1,8 @@
+import NorthWestIcon from "@mui/icons-material/NorthWest";
 import { Typography } from "@mui/material";
 import { useConfiguration } from "../../hooks/useConfiguration";
-import "./StreakView.less";
+import styles from "./StreakView.module.less";
 import { User } from "./User/User";
-import NorthWestIcon from "@mui/icons-material/NorthWest";
 
 export const StreakView = () => {
   const { config } = useConfiguration();
@@ -17,7 +17,7 @@ export const StreakView = () => {
 
   const StreakGrid = () => {
     return (
-      <div className="streak-grid">
+      <div className={styles.streakGrid}>
         {config.userNames.map((userName) => (
           <User userName={userName} key={userName} />
         ))}
@@ -28,7 +28,7 @@ export const StreakView = () => {
   const EmptyState = () => {
     const ConfigPointer = () => {
       return (
-        <div className="pointer">
+        <div className={styles.pointer}>
           <NorthWestIcon fontSize="large" />
         </div>
       );
@@ -45,7 +45,7 @@ export const StreakView = () => {
   };
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <Header />
       {config.userNames.length === 0 && <EmptyState />}
       <StreakGrid />

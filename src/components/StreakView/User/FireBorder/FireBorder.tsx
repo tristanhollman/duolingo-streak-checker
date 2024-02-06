@@ -1,4 +1,4 @@
-import "./FireBorder.less";
+import styles from "./FireBorder.module.less";
 
 type FireBorderProps = {
   children?: React.ReactNode;
@@ -8,10 +8,12 @@ type FireBorderProps = {
 export const FireBorder = (props: FireBorderProps) => {
   return (
     <>
-      <div className={`fire-border ${props.enabled ? "enabled" : ""}`}>
-        <div className="content">{props.children}</div>
+      <div
+        className={`${styles.fireBorder} ${props.enabled && styles.enabled}`}
+      >
+        <div className={styles.content}>{props.children}</div>
       </div>
-      <svg>
+      <svg className={styles.filterSvg}>
         <filter id="wavy">
           <feTurbulence
             type="turbulence"

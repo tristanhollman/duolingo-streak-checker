@@ -19,6 +19,17 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+
+    "plugins": [
+      {
+        /* Configure checkin + intellisense for css modules */
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "goToDefinition": true,
+          "classnameTransform": "camelCaseOnly",
+        },
+      },
+    ],
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
