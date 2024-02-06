@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useMemo } from "react";
 import { useDarkMode } from "usehooks-ts";
-import "./App.less";
 import { ConfigView } from "./ConfigView/ConfigView";
 import { StreakView } from "./StreakView/StreakView";
 
