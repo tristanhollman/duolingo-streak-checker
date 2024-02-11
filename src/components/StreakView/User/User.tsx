@@ -1,5 +1,6 @@
 import { useUserData } from "../../../hooks/useUserData";
 import { proxyify } from "../../../utilities";
+import { CountryFlag } from "./CountryFlag/CountryFlag";
 import { FireBorder } from "./FireBorder/FireBorder";
 import { StreakBlock } from "./StreakBlock/StreakBlock";
 import styles from "./User.module.less";
@@ -20,16 +21,19 @@ export const User = (props: UserProps) => {
 
   return (
     <FireBorder enabled={user.streak.didALessonToday()}>
-      <div className={styles.user}>
+      <div className={styles.container}>
         <h2>{user.name}</h2>
-        <i>({user.currentCourse?.title})</i>
-        <img
-          className={styles.avatar}
-          alt={user.name}
-          src={proxyify(user.pictureUrl)}
-        />
+        <i>{user.currentCourse?.title}</i>
+        <CountryFlag countryCode={user.currentCourse?.languageCode} />
+        <Avatar url={user.pictureUrl} name={user.name} />
         <StreakBlock days={user.streak.days} />
       </div>
     </FireBorder>
+  );
+};
+
+const Avatar = (props: { url: string; name: string }) => {
+  return (
+    <img className={styles.avatar} alt={props.name} src={proxyify(props.url)} />
   );
 };
