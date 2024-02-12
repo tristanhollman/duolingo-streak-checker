@@ -10,11 +10,15 @@
     padding: 10px 5px;
 
     background-color: rgb(255, 200, 0);
-    background-image: url("https://d35aaqx5ub95lt.cloudfront.net/images/profile/92bd1526f88a4bea08ff2d5ad9783311.svg");
+    background-image: url("/src/assets/streak-block-background.svg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     border-color: rgb(255, 200, 0);
     border-style: solid solid none;
+
+    &.inactive {
+      filter: grayscale(100%);
+    }
 
     .icon {
       border-style: none;
@@ -27,6 +31,7 @@
       left: 18px;
       width: 21px;
     }
+
     .star-position-b {
       position: absolute;
       height: 27px;

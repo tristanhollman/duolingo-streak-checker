@@ -1,4 +1,6 @@
 import styles from "./StreakBlock.module.less";
+import starSvg from "../../../../assets/streak-block-star.svg";
+import flameSvg from "../../../../assets/streak-block-flame.svg";
 
 type StreakBlockProps = {
   days: number;
@@ -8,18 +10,14 @@ export const StreakBlock = (props: StreakBlockProps) => {
 
   return (
     <div className={styles.streakBlock}>
-      <div className={styles.container}>
+      <div className={`${styles.container} ${!isActive && styles.inactive}`}>
         {isActive && (
           <>
             <Star positionClass={styles.starPositionA} />
             <Star positionClass={styles.starPositionB} />
           </>
         )}
-        {isActive ? (
-          <Flame positionClass={styles.flamePosition} />
-        ) : (
-          <DisabledFlame positionClass={styles.flamePosition} />
-        )}
+        <Flame positionClass={styles.flamePosition} />
         <div className={styles.streakNumberWrapper}>
           <h1>{props.days}</h1>
           <span>Day streak</span>
@@ -31,27 +29,12 @@ export const StreakBlock = (props: StreakBlockProps) => {
 
 const Star = (props: { positionClass: string }) => {
   return (
-    <img
-      className={`${styles.icon} ${props.positionClass}`}
-      src="https://d35aaqx5ub95lt.cloudfront.net/images/profile/f68d647fdc1536870945a5c84f3b3b82.svg"
-    />
+    <img className={`${styles.icon} ${props.positionClass}`} src={starSvg} />
   );
 };
 
 const Flame = (props: { positionClass: string }) => {
   return (
-    <img
-      className={`${styles.icon} ${props.positionClass}`}
-      src="https://d35aaqx5ub95lt.cloudfront.net/images/profile/8a6dca76019d059a81c4c7c1145aa7a4.svg"
-    />
-  );
-};
-
-const DisabledFlame = (props: { positionClass: string }) => {
-  return (
-    <img
-      className={`${styles.icon} ${props.positionClass}`}
-      src="https://d35aaqx5ub95lt.cloudfront.net/images/icons/ba95e6081679d9d7e8c132da5cfce1ec.svg"
-    />
+    <img className={`${styles.icon} ${props.positionClass}`} src={flameSvg} />
   );
 };
