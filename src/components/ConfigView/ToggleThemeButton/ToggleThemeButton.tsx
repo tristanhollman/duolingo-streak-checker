@@ -1,14 +1,35 @@
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { IconButton } from "@mui/material";
-import { useDarkMode } from "usehooks-ts";
+import LooksIcon from "@mui/icons-material/Looks";
+import { ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { useMuiThemeSelection } from "../../../hooks/useMuiThemeSelection";
 
 export const ToggleThemeButton = () => {
-  const { isDarkMode, toggle } = useDarkMode();
+  const { theme, setSelectedTheme } = useMuiThemeSelection();
+
+  const handleThemeChange = (
+    _event: React.MouseEvent<HTMLElement>,
+    newTheme: string,
+  ) => {
+    setSelectedTheme(newTheme);
+  };
 
   return (
-    <IconButton color="inherit" onClick={toggle}>
-      {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-    </IconButton>
+    <ToggleButtonGroup
+      value={theme.name}
+      exclusive
+      onChange={handleThemeChange}
+      aria-label="theme selection"
+    >
+      <ToggleButton value="light" aria-label="light theme">
+        <Brightness4Icon />
+      </ToggleButton>
+      <ToggleButton value="dark" aria-label="dark theme">
+        <Brightness7Icon />
+      </ToggleButton>
+      <ToggleButton value="fancy" aria-label="fancy theme">
+        <LooksIcon />
+      </ToggleButton>
+    </ToggleButtonGroup>
   );
 };

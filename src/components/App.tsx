@@ -1,24 +1,15 @@
 import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { useMemo } from "react";
-import { useDarkMode } from "usehooks-ts";
+import { useMuiThemeSelection } from "../hooks/useMuiThemeSelection";
 import { ConfigView } from "./ConfigView/ConfigView";
 import { StreakView } from "./StreakView/StreakView";
 
 const queryClient = new QueryClient();
 
 export const App = () => {
-  const { isDarkMode } = useDarkMode();
-
-  const theme = useMemo(() => {
-    return createTheme({
-      palette: {
-        mode: isDarkMode ? "dark" : "light",
-      },
-    });
-  }, [isDarkMode]);
+  const { theme } = useMuiThemeSelection();
 
   return (
     <ThemeProvider theme={theme}>
