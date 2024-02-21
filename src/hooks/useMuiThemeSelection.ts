@@ -56,8 +56,40 @@ const fancyTheme = (): NamedTheme => {
       secondary: {
         main: FANCY_COLOR,
       },
-      text: {
-        primary: FANCY_COLOR,
+    },
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          ":root": {
+            "--hotpinkGradient":
+              "radial-gradient(circle at 10% 20%, rgb(255, 105, 180) 0%, rgb(235, 130, 160) 32.2%, rgb(253, 160, 200) 90%)",
+            "@keyframes movingBackground": {
+              "0%": {
+                backgroundPosition: "0% 50%",
+              },
+              "50%": {
+                backgroundPosition: "100% 50%",
+              },
+              "100%": {
+                backgroundPosition: "0% 50%",
+              },
+            },
+          },
+          body: {
+            background: "var(--hotpinkGradient)",
+            backgroundSize: "400% 400%",
+            animation: "movingBackground 15s ease infinite",
+          },
+        },
+      },
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            background: "var(--hotpinkGradient)",
+            backgroundSize: "400% 400%",
+            animation: "movingBackground 15s ease infinite",
+          },
+        },
       },
     },
   });
