@@ -26,7 +26,10 @@ export const User = (props: UserProps) => {
         <i>{user.currentCourse?.title}</i>
         <CountryFlag countryCode={user.currentCourse?.languageCode} />
         <Avatar url={user.pictureUrl} name={user.name} />
-        <StreakBlock days={user.streak.days} />
+        <StreakBlock
+          days={user.streak.days}
+          didALessonToday={user.streak.didALessonToday()}
+        />
       </div>
     </FireBorder>
   );
