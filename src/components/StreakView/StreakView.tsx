@@ -10,7 +10,7 @@ export const StreakView = () => {
   const Header = () => {
     return (
       <Typography variant="h2" gutterBottom>
-        Duolingo Streaks
+        Duolingo Streak Checker
       </Typography>
     );
   };
