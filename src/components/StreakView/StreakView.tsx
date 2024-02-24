@@ -37,7 +37,7 @@ export const StreakView = () => {
     return (
       <>
         <Typography variant="subtitle1" gutterBottom>
-          Keep track of your and your friends Duoling streaks!
+          Keep track of your and your friends Duolingo streaks!
         </Typography>
         <ConfigPointer />
       </>
