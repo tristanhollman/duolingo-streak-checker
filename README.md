@@ -8,7 +8,7 @@ All you need is enter the usernames of you and/or your friends to see who is sti
 
 ![image](https://github.com/tristanhollman/duolingo-streak-checker/assets/8666039/99182a61-ea00-4211-b7e6-d158b6201a14)
 
-I did 'borrow' some styling and svg's from Duolingo
+I did 'borrow' some styling and svg's from Duolingo and of course all the data is also coming from Duolingo's API.
 
 ### Commands to get you started
 
