@@ -4,6 +4,11 @@
 [![Deploy static content to Pages](https://github.com/tristanhollman/duolingo-streak-checker/actions/workflows/deploy-static-content-to-pages.yml/badge.svg)](https://github.com/tristanhollman/duolingo-streak-checker/actions/workflows/deploy-static-content-to-pages.yml)
 
 Just a simple project used to track/visualize streak progress on Duolingo.
+All you need is enter the usernames of you and/or your friends to see who is still keeping up their streak 😎.
+
+![image](https://github.com/tristanhollman/duolingo-streak-checker/assets/8666039/99182a61-ea00-4211-b7e6-d158b6201a14)
+
+I did 'borrow' some styling and svg's from Duolingo
 
 ### Commands to get you started
 
