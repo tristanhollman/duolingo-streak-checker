@@ -10,8 +10,7 @@ import colors from "tailwindcss/colors";
 import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
 
 /** @type {import('tailwindcss').Config} */
-export const content = ["./src/**/*.{ts,tsx}"];
-export const darkMode = "class";
+export const content = ["./src/components/AceternityUi/**/*.{ts,tsx}"];
 export const theme = {
   // rest of the code
 };
