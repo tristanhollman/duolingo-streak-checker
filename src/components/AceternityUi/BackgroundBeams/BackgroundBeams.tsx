@@ -97,8 +97,9 @@ export const BackgroundBeams = (props: { className?: string }) => {
               key={`gradient-${index}`}
               animate={{
                 x1: ["0%", "100%"],
-                x2: ["0%", "85%"],
                 y1: ["0%", "100%"],
+                // 15% of the line is higlighted
+                x2: ["0%", "85%"],
                 y2: ["0%", `85%`],
               }}
               transition={{
