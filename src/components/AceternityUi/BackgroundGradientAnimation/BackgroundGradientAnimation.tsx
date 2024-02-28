@@ -2,7 +2,7 @@ import styles from "./BackgroundGradientAnimation.module.less";
 import { useRef, useState, useEffect } from "react";
 
 /**
- * BackgroundGradientAnimation component from AceternityUi.
+ * BackgroundGradientAnimation component from AceternityUi (modified).
  * @see https://ui.aceternity.com/components/background-gradient-animation
  */
 export const BackgroundGradientAnimation = ({

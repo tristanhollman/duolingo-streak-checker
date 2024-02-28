@@ -9,6 +9,7 @@ import {
 import { BackgroundBeams, BackgroundGradientAnimation } from "./AceternityUi";
 import { ConfigView } from "./ConfigView/ConfigView";
 import { StreakView } from "./StreakView/StreakView";
+import { BackgroundBoxes } from "./AceternityUi/BackgroundBoxes/BackgroundBoxes";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,11 @@ const ThemedBackground = () => {
       );
     case "light":
     default:
-      return <BackgroundBeams />;
+      return (
+        <>
+          <BackgroundBeams />
+          <BackgroundBoxes />
+        </>
+      );
   }
 };

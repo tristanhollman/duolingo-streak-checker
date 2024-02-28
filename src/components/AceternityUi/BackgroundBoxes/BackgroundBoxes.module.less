@@ -1,0 +1,38 @@
+.background-boxes {
+  position: absolute;
+  left: 25%;
+  padding: 16px;
+  top: -25%;
+  display: flex;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+  .row {
+    width: 16px;
+    height: 8px;
+    border-left: 1px solid #6b7280;
+    position: relative;
+  }
+
+  .column {
+    width: 16px;
+    height: 8px;
+    border-right: 1px solid #6b7280;
+    border-top: 1px solid #6b7280;
+    border-color: slategray;
+    position: relative;
+  }
+
+  .svg {
+    position: absolute;
+    height: 6px;
+    width: 10px;
+    top: -14px;
+    left: -22px;
+    color: slategray;
+    stroke-width: 1px;
+    pointer-events: none;
+  }
+}
