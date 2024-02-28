@@ -16,11 +16,11 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <BackgroundGradientAnimation />
+      <BackgroundBeams />
       <QueryClientProvider client={queryClient}>
         <ConfigView />
         <StreakView />
-        <BackgroundGradientAnimation />
-        <BackgroundBeams />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </ThemeProvider>
