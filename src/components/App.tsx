@@ -4,9 +4,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useMuiThemeSelection } from "../hooks/useMuiThemeSelection";
 import { BackgroundBeams } from "./AceternityUi";
-import styles from "./App.module.less";
 import { ConfigView } from "./ConfigView/ConfigView";
 import { StreakView } from "./StreakView/StreakView";
+import { BackgroundGradientAnimation } from "./AceternityUi/BackgroundGradientAnimation/BackgroundGradientAnimation";
 
 const queryClient = new QueryClient();
 
@@ -18,8 +18,10 @@ export const App = () => {
       <CssBaseline />
       <QueryClientProvider client={queryClient}>
         <ConfigView />
-        <StreakView />
-        <BackgroundBeams className={styles.backgroundBeams} />
+        <BackgroundGradientAnimation>
+          <StreakView />
+          <BackgroundBeams />
+        </BackgroundGradientAnimation>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </ThemeProvider>

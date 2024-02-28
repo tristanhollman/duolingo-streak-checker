@@ -1,0 +1,161 @@
+.background-gradient-animation {
+  @animation-first: move-vertical 30s ease infinite;
+  @animation-second: move-in-circle 20s reverse infinite;
+  @animation-third: move-in-circle 40s linear infinite;
+  @animation-fourth: move-horizontal 40s ease infinite;
+  @animation-fifth: move-in-circle 20s ease infinite;
+  @background-z-index: -2;
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 2;
+  background: linear-gradient(
+    40deg,
+    var(--gradient-background-start),
+    var(--gradient-background-end)
+  );
+
+  .gradients-container {
+    filter: url(#blurMe) blur(40px);
+  }
+
+  .gradients-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: @background-z-index;
+
+    // Now style all 5 of the gradient background colors.
+    .gradient {
+      position: absolute;
+      mix-blend-mode: var(--blending-value);
+      width: var(--size);
+      height: var(--size);
+      top: calc(50% - var(--size) / 2);
+      left: calc(50% - var(--size) / 2);
+
+      &:nth-of-type(1) {
+        transform-origin: center center;
+        animation: animate-first;
+        opacity: 100;
+        background: radial-gradient(
+            circle at center,
+            var(--first-color) 0,
+            var(--first-color) 50%
+          )
+          no-repeat;
+      }
+
+      &:nth-of-type(2) {
+        transform-origin: calc(50% - 400px);
+        animation: animate-second;
+        opacity: 100;
+        background: radial-gradient(
+            circle at center,
+            rgba(var(--second-color), 0.8) 0,
+            rgba(var(--second-color), 0) 50%
+          )
+          no-repeat;
+      }
+
+      &:nth-of-type(3) {
+        transform-origin: calc(50% + 400px);
+        animation: animate-third;
+        opacity: 100;
+        background: radial-gradient(
+            circle at center,
+            rgba(var(--third-color), 0.8) 0,
+            rgba(var(--third-color), 0) 50%
+          )
+          no-repeat;
+      }
+
+      &:nth-of-type(4) {
+        transform-origin: calc(50% - 200px);
+        animation: animate-fourth;
+        opacity: 70;
+        background: radial-gradient(
+            circle at center,
+            rgba(var(--fourth-color), 0.8) 0,
+            rgba(var(--fourth-color), 0) 50%
+          )
+          no-repeat;
+      }
+
+      &:nth-of-type(5) {
+        transform-origin: calc(50% - 800px) calc(50% + 800px);
+        animation: animate-fifth;
+        opacity: 100;
+        background: radial-gradient(
+            circle at center,
+            rgba(var(--fifth-color), 0.8) 0,
+            rgba(var(--fifth-color), 0) 50%
+          )
+          no-repeat;
+      }
+    }
+
+    .interactive-box {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: -50%;
+      left: -50%;
+      opacity: 0.7;
+      background: radial-gradient(
+          circle at center,
+          rgba(var(--pointer-color), 0.8) 0,
+          rgba(var(--pointer-color), 0) 50%
+        )
+        no-repeat;
+    }
+  }
+}
+
+@keyframes move-horizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+
+@keyframes move-in-circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move-vertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
