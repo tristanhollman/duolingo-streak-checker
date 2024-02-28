@@ -1,9 +1,4 @@
 .background-gradient-animation {
-  @animation-first: move-vertical 30s ease infinite;
-  @animation-second: move-in-circle 20s reverse infinite;
-  @animation-third: move-in-circle 40s linear infinite;
-  @animation-fourth: move-horizontal 40s ease infinite;
-  @animation-fifth: move-in-circle 20s ease infinite;
   @background-z-index: -2;
 
   position: absolute;
@@ -48,7 +43,7 @@
 
       &:nth-of-type(1) {
         transform-origin: center center;
-        animation: animate-first;
+        animation: move-vertical 30s ease infinite;
         opacity: 100;
         background: radial-gradient(
             circle at center,
@@ -60,7 +55,7 @@
 
       &:nth-of-type(2) {
         transform-origin: calc(50% - 400px);
-        animation: animate-second;
+        animation: move-in-circle 20s reverse infinite;
         opacity: 100;
         background: radial-gradient(
             circle at center,
@@ -72,7 +67,7 @@
 
       &:nth-of-type(3) {
         transform-origin: calc(50% + 400px);
-        animation: animate-third;
+        animation: move-in-circle 40s linear infinite;
         opacity: 100;
         background: radial-gradient(
             circle at center,
@@ -84,7 +79,7 @@
 
       &:nth-of-type(4) {
         transform-origin: calc(50% - 200px);
-        animation: animate-fourth;
+        animation: move-horizontal 40s ease infinite;
         opacity: 70;
         background: radial-gradient(
             circle at center,
@@ -96,7 +91,7 @@
 
       &:nth-of-type(5) {
         transform-origin: calc(50% - 800px) calc(50% + 800px);
-        animation: animate-fifth;
+        animation: move-in-circle 20s ease infinite;
         opacity: 100;
         background: radial-gradient(
             circle at center,

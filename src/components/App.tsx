@@ -2,11 +2,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { useMuiThemeSelection } from "../hooks/useMuiThemeSelection";
-import { BackgroundBeams } from "./AceternityUi";
+import {
+  FANCY_COLORS_RGB,
+  useMuiThemeSelection,
+} from "../hooks/useMuiThemeSelection";
+import { BackgroundBeams, BackgroundGradientAnimation } from "./AceternityUi";
 import { ConfigView } from "./ConfigView/ConfigView";
 import { StreakView } from "./StreakView/StreakView";
-import { BackgroundGradientAnimation } from "./AceternityUi/BackgroundGradientAnimation/BackgroundGradientAnimation";
 
 const queryClient = new QueryClient();
 
@@ -16,8 +18,7 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BackgroundGradientAnimation />
-      <BackgroundBeams />
+      <ThemedBackground />
       <QueryClientProvider client={queryClient}>
         <ConfigView />
         <StreakView />
@@ -25,4 +26,31 @@ export const App = () => {
       </QueryClientProvider>
     </ThemeProvider>
   );
+};
+
+const ThemedBackground = () => {
+  const { theme } = useMuiThemeSelection();
+
+  switch (theme.name) {
+    case "dark":
+      return <BackgroundBeams />;
+    case "fancy":
+      return (
+        <>
+          <BackgroundGradientAnimation
+            gradientBackgroundStart={`rgb(${FANCY_COLORS_RGB[0]})`}
+            gradientBackgroundEnd={`rgb(${FANCY_COLORS_RGB[1]})`}
+            firstColor={FANCY_COLORS_RGB[0]}
+            secondColor={FANCY_COLORS_RGB[1]}
+            thirdColor={FANCY_COLORS_RGB[2]}
+            fourthColor={FANCY_COLORS_RGB[3]}
+            fifthColor={FANCY_COLORS_RGB[4]}
+          />
+          <BackgroundBeams />
+        </>
+      );
+    case "light":
+    default:
+      return <BackgroundBeams />;
+  }
 };

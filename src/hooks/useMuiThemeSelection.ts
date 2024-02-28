@@ -3,7 +3,16 @@ import { useMemo } from "react";
 import { useLocalStorage } from "usehooks-ts";
 
 const LOCAL_STORAGE_KEY = "theme";
-const FANCY_COLOR = "#ff69b4";
+export const FANCY_COLOR = "#ff69b4";
+export const FANCY_COLOR_RGB = "255, 105, 180";
+export const FANCY_COLORS_RGB = [
+  FANCY_COLOR_RGB,
+  "246, 165, 254",
+  "255, 105, 180",
+  "251, 204, 235",
+  "221, 221, 221",
+];
+const FANCY_GRADIENT = `linear-gradient(135deg, rgb(255, 105, 180) 0%, rgb(246, 165, 254) 50%, rgb(255, 105, 180) 100%)`;
 type NamedTheme = Theme & { name: string };
 
 export function useMuiThemeSelection() {
@@ -61,8 +70,7 @@ const fancyTheme = (): NamedTheme => {
       MuiCssBaseline: {
         styleOverrides: {
           ":root": {
-            "--hotpinkGradient":
-              "linear-gradient(135deg, rgb(255, 105, 180) 0%, rgb(246, 165, 254) 50%, rgb(255, 105, 180) 100%)",
+            "--hotpinkGradient": FANCY_GRADIENT,
             "@keyframes movingBackground": {
               "0%": {
                 backgroundPosition: "0% 50%",

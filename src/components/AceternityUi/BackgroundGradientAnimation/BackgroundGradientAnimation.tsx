@@ -16,7 +16,7 @@ export const BackgroundGradientAnimation = ({
   pointerColor = "140, 100, 255",
   size = "80%",
   blendingValue = "hard-light",
-  interactive = true,
+  interactive = false,
   containerClassName,
 }: {
   gradientBackgroundStart?: string;
@@ -29,8 +29,6 @@ export const BackgroundGradientAnimation = ({
   pointerColor?: string;
   size?: string;
   blendingValue?: string;
-  children?: React.ReactNode;
-  className?: string;
   interactive?: boolean;
   containerClassName?: string;
 }) => {
