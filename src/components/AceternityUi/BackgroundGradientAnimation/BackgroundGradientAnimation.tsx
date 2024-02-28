@@ -2,8 +2,8 @@ import styles from "./BackgroundGradientAnimation.module.less";
 import { useRef, useState, useEffect } from "react";
 
 /**
- * BackgroundBeams component from AceternityUi.
- * @see https://ui.aceternity.com/components/background-beams
+ * BackgroundGradientAnimation component from AceternityUi.
+ * @see https://ui.aceternity.com/components/background-gradient-animation
  */
 export const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "rgb(108, 0, 162)",
@@ -16,8 +16,6 @@ export const BackgroundGradientAnimation = ({
   pointerColor = "140, 100, 255",
   size = "80%",
   blendingValue = "hard-light",
-  children,
-  className,
   interactive = true,
   containerClassName,
 }: {
@@ -119,7 +117,6 @@ export const BackgroundGradientAnimation = ({
           </filter>
         </defs>
       </svg>
-      <div className={className}>{children}</div>
       <div className={styles.gradientsContainer}>
         <div className={styles.gradient}></div>
         <div className={styles.gradient}></div>

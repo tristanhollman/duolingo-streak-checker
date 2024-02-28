@@ -18,10 +18,9 @@ export const App = () => {
       <CssBaseline />
       <QueryClientProvider client={queryClient}>
         <ConfigView />
-        <BackgroundGradientAnimation>
-          <StreakView />
-          <BackgroundBeams />
-        </BackgroundGradientAnimation>
+        <StreakView />
+        <BackgroundGradientAnimation />
+        <BackgroundBeams />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </ThemeProvider>
