@@ -18,14 +18,14 @@
     ]
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.15.11",
     "@mui/material": "^5.15.11",
     "@tanstack/react-query": "^5.24.1",
     "flag-icons": "^7.1.0",
-    "framer-motion": "^11.0.6",
+    "framer-motion": "^11.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "usehooks-ts": "^2.15.1"
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.20.1",
     "@tanstack/react-query-devtools": "^5.24.1",
-    "@types/react": "^18.2.59",
+    "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
