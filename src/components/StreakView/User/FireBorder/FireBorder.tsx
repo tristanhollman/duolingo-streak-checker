@@ -8,8 +8,9 @@ type FireBorderProps = {
 export const FireBorder = (props: FireBorderProps) => {
   return (
     <>
+      {/* Temporary disable fire borders as the animation is a bit bugged. */}
       <div
-        className={`${styles.fireBorder} ${props.enabled && styles.enabled}`}
+        className={`${styles.fireBorder} ${props.enabled && false && styles.enabled}`}
       >
         <div className={styles.content}>{props.children}</div>
         <svg className={styles.filterSvg}>
