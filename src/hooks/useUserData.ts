@@ -20,6 +20,7 @@ export function useUserData(userName: string) {
       return result;
     },
     refetchInterval: 1000 * 60 * 5, // 5 minutes
+    refetchIntervalInBackground: true, // continue to refetch while tab/window is in the background
   });
 
   if (isError) console.error("Error fetching streak info", data);
