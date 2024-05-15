@@ -12,7 +12,9 @@ export const StreakBlock = (props: StreakBlockProps) => {
 
   return (
     <div className={styles.streakBlock}>
-      <div className={`${styles.container} ${!hasStreak && styles.inactive}`}>
+      <div
+        className={`${styles.container} ${!hasStreak && styles.inactive} ${didALessonToday && styles.fireAnimation}`}
+      >
         {didALessonToday && (
           <>
             <Star positionClass={styles.starPositionA} />

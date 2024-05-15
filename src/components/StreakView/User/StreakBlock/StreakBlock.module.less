@@ -16,6 +16,10 @@
     border-color: rgb(255, 200, 0);
     border-style: solid solid none;
 
+    &.fire-animation {
+      animation: burn 1.5s linear infinite alternate;
+    }
+
     .icon {
       border-style: none;
     }
@@ -39,7 +43,6 @@
     .flame-position {
       align-self: start;
       margin-left: 10px;
-      width: 21px;
       height: 40px;
       width: 40px;
     }
@@ -53,5 +56,48 @@
 
   .inactive {
     filter: grayscale(100%);
+  }
+}
+
+@keyframes burn {
+  from {
+    box-shadow:
+      -0.1em 0 0.3em rgb(255, 252, 200),
+      0.1em -0.1em 0.3em rgb(255, 200, 0),
+      -0.2em -0.2em 0.4em rgb(255, 174, 52),
+      0.2em -0.3em 0.3em rgb(236, 118, 12),
+      -0.2em -0.4em 0.4em rgb(205, 70, 6),
+      0.1em -0.5em 0.7em rgb(151, 55, 22),
+      0.1em -0.7em 0.7em rgb(69, 27, 14);
+  }
+  45% {
+    box-shadow:
+      0.1em -0.2em 0.5em rgb(255, 252, 200),
+      0.15em 0 0.4em rgb(255, 200, 0),
+      -0.1em -0.25em 0.5em rgb(255, 174, 52),
+      0.15em -0.45em 0.5em rgb(236, 118, 12),
+      -0.1em -0.5em 0.6em rgb(205, 70, 6),
+      0 -0.8em 0.6em rgb(151, 55, 22),
+      0.2em -1em 0.8em rgb(69, 27, 14);
+  }
+  70% {
+    box-shadow:
+      -0.1em 0 0.3em rgb(255, 252, 200),
+      0.1em -0.1em 0.3em rgb(255, 200, 0),
+      -0.2em -0.2em 0.6em rgb(255, 174, 52),
+      0.2em -0.3em 0.4em rgb(236, 118, 12),
+      -0.2em -0.4em 0.7em rgb(205, 70, 6),
+      0.1em -0.5em 0.7em rgb(151, 55, 22),
+      0.1em -0.7em 0.9em rgb(69, 27, 14);
+  }
+  to {
+    box-shadow:
+      -0.1em -0.2em 0.6em rgb(255, 252, 200),
+      -0.15em 0 0.6em rgb(255, 200, 0),
+      0.1em -0.25em 0.6em rgb(255, 174, 52),
+      -0.15em -0.45em 0.5em rgb(236, 118, 12),
+      0.1em -0.5em 0.6em rgb(205, 70, 6),
+      0 -0.8em 0.6em rgb(151, 55, 22),
+      -0.2em -1em 0.8em rgb(69, 27, 14);
   }
 }
