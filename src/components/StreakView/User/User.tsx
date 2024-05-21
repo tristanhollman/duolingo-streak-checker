@@ -23,9 +23,7 @@ export const User = (props: UserProps) => {
     <div
       className={styles.container}
       style={{
-        backgroundImage: user.streak.days
-          ? getLeagueBackgroundImage(user.currentLeaderboardTier)
-          : "",
+        backgroundImage: getLeagueBackgroundImage(user.currentLeaderboardTier),
       }}
     >
       <h2>{user.name}</h2>

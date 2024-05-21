@@ -26,7 +26,7 @@ export class User {
     if (currentCourse) {
       this.currentCourse = CurrentCourse.fromResponse(currentCourse);
     }
-    if (leaderboardTier !== undefined) {
+    if (leaderboardTier !== undefined && this.streak.days > 0) {
       this.currentLeaderboardTier = mapLeaderboardTier(leaderboardTier);
     }
   }
