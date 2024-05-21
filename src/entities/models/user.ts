@@ -6,12 +6,16 @@ export class User {
   public readonly pictureUrl: string;
   public readonly streak: Streak;
   public readonly currentCourse?: CurrentCourse;
+  public readonly currentLeaderboardTier?: Tier;
 
-  public static fromResponse(response: UserDto): User {
-    return new User(response);
+  public static fromResponse(
+    response: UserDto,
+    leaderboardTier?: number,
+  ): User {
+    return new User(response, leaderboardTier);
   }
 
-  private constructor(user: UserDto) {
+  private constructor(user: UserDto, leaderboardTier?: number) {
     this.name = user.name;
     this.username = user.username;
     this.pictureUrl = user.picture.replace("//", "https://") + "/xxlarge";
@@ -21,6 +25,9 @@ export class User {
     );
     if (currentCourse) {
       this.currentCourse = CurrentCourse.fromResponse(currentCourse);
+    }
+    if (leaderboardTier !== undefined) {
+      this.currentLeaderboardTier = mapLeaderboardTier(leaderboardTier);
     }
   }
 }
@@ -72,4 +79,22 @@ class CurrentCourse {
     this.title = course.title;
     this.languageCode = course.learningLanguage;
   }
+}
+
+const mapLeaderboardTier = (tier: number): Tier => {
+  // Map the leaderboard tier to the enum value, any value higher than the max tier will be mapped to the max tier.
+  return Math.min(tier, Tier.DIAMOND);
+};
+
+export enum Tier {
+  BRONZE = 0,
+  SILVER = 1,
+  GOLD = 2,
+  SAPPHIRE = 3,
+  RUBY = 4,
+  EMERALD = 5,
+  AMETHYST = 6,
+  PEARL = 7,
+  OBSIDIAN = 8,
+  DIAMOND = 9,
 }

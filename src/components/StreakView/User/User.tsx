@@ -1,7 +1,7 @@
 import { useUserData } from "../../../hooks/useUserData";
 import { proxyify } from "../../../utilities";
+import { getLeagueBackgroundImage } from "../../../utilities/league-tier-background/determine-league-background";
 import { CountryFlag } from "./CountryFlag/CountryFlag";
-import { FireBorder } from "./FireBorder/FireBorder";
 import { StreakBlock } from "./StreakBlock/StreakBlock";
 import styles from "./User.module.less";
 
@@ -20,18 +20,23 @@ export const User = (props: UserProps) => {
   }
 
   return (
-    <FireBorder enabled={user.streak.didALessonToday()}>
-      <div className={styles.container}>
-        <h2>{user.name}</h2>
-        <i>{user.currentCourse?.title}</i>
-        <CountryFlag countryCode={user.currentCourse?.languageCode} />
-        <Avatar url={user.pictureUrl} name={user.name} />
-        <StreakBlock
-          days={user.streak.days}
-          didALessonToday={user.streak.didALessonToday()}
-        />
-      </div>
-    </FireBorder>
+    <div
+      className={styles.container}
+      style={{
+        backgroundImage: user.streak.days
+          ? getLeagueBackgroundImage(user.currentLeaderboardTier)
+          : "",
+      }}
+    >
+      <h2>{user.name}</h2>
+      <i>{user.currentCourse?.title}</i>
+      <CountryFlag countryCode={user.currentCourse?.languageCode} />
+      <Avatar url={user.pictureUrl} name={user.name} />
+      <StreakBlock
+        days={user.streak.days}
+        didALessonToday={user.streak.didALessonToday()}
+      />
+    </div>
   );
 };
 

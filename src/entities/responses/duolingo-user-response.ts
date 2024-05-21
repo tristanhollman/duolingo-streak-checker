@@ -1,4 +1,4 @@
-export type DuolingoResponse = {
+export type DuolingoUserResponse = {
   users: UserDto[];
 };
 

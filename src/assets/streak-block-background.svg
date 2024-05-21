@@ -1,1 +1,15 @@
-<svg width="168" height="59" viewBox="0 0 168 59" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_342_26)"><rect width="167.5" height="59" fill="#FFC800"/><path opacity="0.2" d="M95.5587 -21.8281L104.664 -12.7227L19.1041 72.8372L9.99874 63.7318L95.5587 -21.8281Z" fill="#FFF5D3"/><path opacity="0.2" d="M152.561 -21.8281L181.566 7.17689L96.0056 92.7368L67.0006 63.7318L152.561 -21.8281Z" fill="#FFF5D3"/></g><defs><clipPath id="clip0_342_26"><rect width="167.5" height="59" fill="white"/></clipPath></defs></svg>
+<svg width="168" height="59" viewBox="0 0 168 59" preserveAspectRatio="none" fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_342_26)">
+    <rect width="167.5" height="59" fill="#FFC800" />
+    <path opacity="0.2" d="M95.5587 -21.8281L104.664 -12.7227L19.1041 72.8372L9.99874 63.7318L95.5587 -21.8281Z"
+      fill="#FFF5D3" />
+    <path opacity="0.2" d="M152.561 -21.8281L181.566 7.17689L96.0056 92.7368L67.0006 63.7318L152.561 -21.8281Z"
+      fill="#FFF5D3" />
+  </g>
+  <defs>
+    <clipPath id="clip0_342_26">
+      <rect width="167.5" height="59" fill="white" />
+    </clipPath>
+  </defs>
+</svg>
