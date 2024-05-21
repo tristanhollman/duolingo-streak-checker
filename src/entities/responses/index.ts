@@ -1,1 +1,1 @@
-export * from "./duolingo-api-response";
+export * from "./duolingo-user-response";
