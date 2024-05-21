@@ -13,6 +13,14 @@ import leagueDiamondSvg from "../../assets/league-tier-backgrounds/diamond.svg";
 export const getLeagueBackgroundImage = (
   currentLeaderboardTier?: number,
 ): string => {
+  const result = getLeagueBackgroundImage_INNER(currentLeaderboardTier);
+  console.log(result);
+  return result;
+};
+
+const getLeagueBackgroundImage_INNER = (
+  currentLeaderboardTier?: number,
+): string => {
   console.log(currentLeaderboardTier, Tier[currentLeaderboardTier ?? -1]);
   switch (Tier[currentLeaderboardTier ?? -1]) {
     case "BRONZE":
