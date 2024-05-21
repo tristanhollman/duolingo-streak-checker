@@ -19,6 +19,8 @@ export const User = (props: UserProps) => {
     return <span>Failed to retrieve streak data...</span>;
   }
 
+  console.log(getLeagueBackgroundImage(user.currentLeaderboardTier));
+
   return (
     <div
       className={styles.container}
