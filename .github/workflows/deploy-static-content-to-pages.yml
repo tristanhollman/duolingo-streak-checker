@@ -66,3 +66,4 @@ jobs:
           user: "${{ github.actor }}"
           description: "Automated Release via Github Actions"
           commit: "${{ github.sha }}"
+          region: "EU"
