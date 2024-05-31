@@ -9,4 +9,8 @@ updates:
       dependencies:
         patterns:
           - "*" # Group all dependencies together in a single PR
+    ignore:
+      # Ignore eslint v9 as it's currently not compatible with 'eslint-plugin-query'
+      - dependency-name: "eslint"
+        versions: ["9.x"]
     open-pull-requests-limit: 1 # Only allow 1 PR at a time (should be done automatically as updates are grouped)
