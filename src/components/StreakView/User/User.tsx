@@ -1,7 +1,7 @@
 import { useUserData } from "../../../hooks/useUserData";
 import { proxyify } from "../../../utilities";
-import { getLeagueBackgroundImage } from "../../../utilities/league-tier-background/determine-league-background";
 import { CountryFlag } from "./CountryFlag/CountryFlag";
+import { LeagueBadge } from "./LeagueBadge/LeagueBadge";
 import { StreakBlock } from "./StreakBlock/StreakBlock";
 import styles from "./User.module.less";
 
@@ -19,18 +19,12 @@ export const User = (props: UserProps) => {
     return <span>Failed to retrieve streak data...</span>;
   }
 
-  console.log(getLeagueBackgroundImage(user.currentLeaderboardTier));
-
   return (
-    <div
-      className={styles.container}
-      style={{
-        backgroundImage: getLeagueBackgroundImage(user.currentLeaderboardTier),
-      }}
-    >
+    <div className={styles.container}>
       <h2>{user.name}</h2>
       <i>{user.currentCourse?.title}</i>
       <CountryFlag countryCode={user.currentCourse?.languageCode} />
+      <LeagueBadge league={user.currentLeaderboardTier} />
       <Avatar url={user.pictureUrl} name={user.name} />
       <StreakBlock
         days={user.streak.days}

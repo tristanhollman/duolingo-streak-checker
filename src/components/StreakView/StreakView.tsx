@@ -9,7 +9,7 @@ export const StreakView = () => {
 
   const Header = () => {
     return (
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h2" gutterBottom className={styles.header}>
         Duolingo Streak Checker
       </Typography>
     );
@@ -44,11 +44,16 @@ export const StreakView = () => {
     );
   };
 
+  const SideBar = () => {
+    return <div className={styles.sideBar}></div>;
+  };
+
   return (
     <div className={styles.container}>
       <Header />
       {config.userNames.length === 0 && <EmptyState />}
       <StreakGrid />
+      <SideBar />
     </div>
   );
 };

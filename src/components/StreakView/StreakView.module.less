@@ -3,6 +3,10 @@
   width: 100%;
   display: grid;
   grid-template-rows: min-content auto;
+  grid-template-columns: auto min-content;
+  grid-template-areas:
+    "header header"
+    "content sidebar";
   gap: 1rem;
   overflow-y: auto;
 
@@ -17,7 +21,16 @@
     scrollbar-width: none; /* Firefox */
   }
 
+  .header {
+    grid-area: header;
+  }
+
+  .side-bar {
+    grid-area: sidebar;
+  }
+
   .streak-grid {
+    grid-area: content;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

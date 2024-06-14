@@ -12,29 +12,33 @@ import leagueDiamondSvg from "../../assets/league-tier-backgrounds/diamond.svg";
 
 export const getLeagueBackgroundImage = (
   currentLeaderboardTier?: number,
+  useUrl = false,
 ): string => {
   switch (Tier[currentLeaderboardTier ?? -1]) {
     case "BRONZE":
-      return `url(${new URL(leagueBronzeSvg, import.meta.url).href}`;
+      return useUrl ? createUrl(leagueBronzeSvg) : leagueBronzeSvg;
     case "SILVER":
-      return `url(${new URL(leagueSilverSvg, import.meta.url).href}`;
+      return useUrl ? createUrl(leagueSilverSvg) : leagueSilverSvg;
     case "GOLD":
-      return `url(${new URL(leagueGoldSvg, import.meta.url).href}`;
+      return useUrl ? createUrl(leagueGoldSvg) : leagueGoldSvg;
     case "SAPPHIRE":
-      return `url(${new URL(leagueSapphireSvg, import.meta.url).href}`;
+      return useUrl ? createUrl(leagueSapphireSvg) : leagueSapphireSvg;
     case "RUBY":
-      return `url(${new URL(leagueRubySvg, import.meta.url).href}`;
+      return useUrl ? createUrl(leagueRubySvg) : leagueRubySvg;
     case "EMERALD":
-      return `url(${new URL(leagueEmeraldSvg, import.meta.url).href}`;
+      return useUrl ? createUrl(leagueEmeraldSvg) : leagueEmeraldSvg;
     case "AMETHYST":
-      return `url(${new URL(leagueAmethystSvg, import.meta.url).href}`;
+      return useUrl ? createUrl(leagueAmethystSvg) : leagueAmethystSvg;
     case "PEARL":
-      return `url(${new URL(leaguePearlSvg, import.meta.url).href}`;
+      return useUrl ? createUrl(leaguePearlSvg) : leaguePearlSvg;
     case "OBSIDIAN":
-      return `url(${new URL(leagueObsidianSvg, import.meta.url).href}`;
+      return useUrl ? createUrl(leagueObsidianSvg) : leagueObsidianSvg;
     case "DIAMOND":
-      return `url(${new URL(leagueDiamondSvg, import.meta.url).href}`;
+      return useUrl ? createUrl(leagueDiamondSvg) : leagueDiamondSvg;
     default:
       return "";
   }
 };
+
+const createUrl = (input: string) =>
+  `url(${new URL(input, import.meta.url).href}`;
