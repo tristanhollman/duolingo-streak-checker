@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchWithProxy } from "../utilities";
 import { DuolingoUserResponse, UserDto } from "../entities/responses";
-import { User } from "../entities/models";
+import { LeaderBoardInfo, User } from "../entities/models";
 import { DuolingoLeaderboardResponse } from "../entities/responses/duolingo-leaderboard-response";
 
 /**
@@ -44,15 +44,18 @@ const fetchUser = async (userName: string): Promise<UserDto> => {
 
 const fetchLeaderboardTier = async (
   userId: number,
-): Promise<number | undefined> => {
+): Promise<LeaderBoardInfo | undefined> => {
   try {
     const rawUserResponse = await fetchWithProxy(
       `https://duolingo-leaderboards-prod.duolingo.com/leaderboards/7d9f5dd1-8423-491a-91f2-2532052038ce/users/${userId}`,
     );
     const typedUserResponse =
       (await rawUserResponse.json()) as DuolingoLeaderboardResponse;
-    const leaderboardTier = typedUserResponse.tier;
-    return leaderboardTier;
+
+    return {
+      tier: typedUserResponse.tier,
+      numWins: typedUserResponse.stats.num_wins,
+    };
   } catch (error) {
     console.error("Error fetching leaderboard tier", error);
     return undefined;

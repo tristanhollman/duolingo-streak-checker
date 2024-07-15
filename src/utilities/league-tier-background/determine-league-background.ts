@@ -9,32 +9,47 @@ import leagueAmethystSvg from "../../assets/league-tier-backgrounds/amethyst.svg
 import leaguePearlSvg from "../../assets/league-tier-backgrounds/pearl.svg";
 import leagueObsidianSvg from "../../assets/league-tier-backgrounds/obsidian.svg";
 import leagueDiamondSvg from "../../assets/league-tier-backgrounds/diamond.svg";
+import leagueDiamondTournament1Svg from "../../assets/league-tier-backgrounds/diamond_tournament_1.svg";
+import leagueDiamondTournament2Svg from "../../assets/league-tier-backgrounds/diamond_tournament_2.svg";
+import leagueDiamondTournament3Svg from "../../assets/league-tier-backgrounds/diamond_tournament_3.svg";
 
 export const getLeagueBackgroundImage = (
-  currentLeaderboardTier?: number,
+  currentLeaderboardTier?: Tier,
   useUrl = false,
 ): string => {
-  switch (Tier[currentLeaderboardTier ?? -1]) {
-    case "BRONZE":
+  switch (currentLeaderboardTier) {
+    case Tier.BRONZE:
       return useUrl ? createUrl(leagueBronzeSvg) : leagueBronzeSvg;
-    case "SILVER":
+    case Tier.SILVER:
       return useUrl ? createUrl(leagueSilverSvg) : leagueSilverSvg;
-    case "GOLD":
+    case Tier.GOLD:
       return useUrl ? createUrl(leagueGoldSvg) : leagueGoldSvg;
-    case "SAPPHIRE":
+    case Tier.SAPPHIRE:
       return useUrl ? createUrl(leagueSapphireSvg) : leagueSapphireSvg;
-    case "RUBY":
+    case Tier.RUBY:
       return useUrl ? createUrl(leagueRubySvg) : leagueRubySvg;
-    case "EMERALD":
+    case Tier.EMERALD:
       return useUrl ? createUrl(leagueEmeraldSvg) : leagueEmeraldSvg;
-    case "AMETHYST":
+    case Tier.AMETHYST:
       return useUrl ? createUrl(leagueAmethystSvg) : leagueAmethystSvg;
-    case "PEARL":
+    case Tier.PEARL:
       return useUrl ? createUrl(leaguePearlSvg) : leaguePearlSvg;
-    case "OBSIDIAN":
+    case Tier.OBSIDIAN:
       return useUrl ? createUrl(leagueObsidianSvg) : leagueObsidianSvg;
-    case "DIAMOND":
+    case Tier.DIAMOND:
       return useUrl ? createUrl(leagueDiamondSvg) : leagueDiamondSvg;
+    case Tier.DIAMOND_TOURNAMENT_1:
+      return useUrl
+        ? createUrl(leagueDiamondTournament1Svg)
+        : leagueDiamondTournament1Svg;
+    case Tier.DIAMOND_TOURNAMENT_2:
+      return useUrl
+        ? createUrl(leagueDiamondTournament2Svg)
+        : leagueDiamondTournament2Svg;
+    case Tier.DIAMOND_TOURNAMENT_3:
+      return useUrl
+        ? createUrl(leagueDiamondTournament3Svg)
+        : leagueDiamondTournament3Svg;
     default:
       return "";
   }

@@ -10,12 +10,12 @@ export class User {
 
   public static fromResponse(
     response: UserDto,
-    leaderboardTier?: number,
+    leaderboardInfo?: LeaderBoardInfo,
   ): User {
-    return new User(response, leaderboardTier);
+    return new User(response, leaderboardInfo);
   }
 
-  private constructor(user: UserDto, leaderboardTier?: number) {
+  private constructor(user: UserDto, leaderboardInfo?: LeaderBoardInfo) {
     this.name = user.name;
     this.username = user.username;
     this.pictureUrl = user.picture.replace("//", "https://") + "/xxlarge";
@@ -26,8 +26,8 @@ export class User {
     if (currentCourse) {
       this.currentCourse = CurrentCourse.fromResponse(currentCourse);
     }
-    if (leaderboardTier !== undefined && this.streak.days > 0) {
-      this.currentLeaderboardTier = mapLeaderboardTier(leaderboardTier);
+    if (leaderboardInfo !== undefined && this.streak.days > 0) {
+      this.currentLeaderboardTier = mapLeaderboardTier(leaderboardInfo);
     }
   }
 }
@@ -81,9 +81,28 @@ class CurrentCourse {
   }
 }
 
-const mapLeaderboardTier = (tier: number): Tier => {
-  // Map the leaderboard tier to the enum value, any value higher than the max tier will be mapped to the max tier.
-  return Math.min(tier, Tier.DIAMOND);
+const mapLeaderboardTier = (leaderBoardInfo: LeaderBoardInfo): Tier => {
+  let tier = Math.min(leaderBoardInfo.tier, Tier.DIAMOND);
+
+  if (tier >= Tier.DIAMOND) {
+    switch (leaderBoardInfo.numWins ?? 0) {
+      case 1:
+        tier = Tier.DIAMOND_TOURNAMENT_1;
+        break;
+      case 2:
+        tier = Tier.DIAMOND_TOURNAMENT_2;
+        break;
+      case 3:
+        tier = Tier.DIAMOND_TOURNAMENT_3;
+        break;
+      case 0:
+      default:
+        tier = Tier.DIAMOND;
+        break;
+    }
+  }
+
+  return tier;
 };
 
 export enum Tier {
@@ -97,4 +116,12 @@ export enum Tier {
   PEARL = 7,
   OBSIDIAN = 8,
   DIAMOND = 9,
+  DIAMOND_TOURNAMENT_1 = 10,
+  DIAMOND_TOURNAMENT_2 = 11,
+  DIAMOND_TOURNAMENT_3 = 12,
 }
+
+export type LeaderBoardInfo = {
+  tier: number;
+  numWins: number;
+};
