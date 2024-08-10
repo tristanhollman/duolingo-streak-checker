@@ -85,7 +85,9 @@ const UserItem = (props: { userName: string }) => {
   const { config, persistConfig } = useConfiguration();
 
   const removeUser = (userName: string) => {
-    config.removeUserName(userName) && persistConfig(config);
+    if (config.removeUserName(userName)) {
+      persistConfig(config);
+    }
   };
 
   return (
@@ -113,7 +115,9 @@ const NewUserItem = () => {
   const [newUserName, setUserName] = useState("");
 
   const addUser = () => {
-    config.addUserName(newUserName) && persistConfig(config);
+    if (config.addUserName(newUserName)) {
+      persistConfig(config);
+    }
     setUserName("");
   };
 
