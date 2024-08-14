@@ -77,7 +77,8 @@ class CurrentCourse {
 
   private constructor(course: CourseDto) {
     this.title = course.title;
-    this.languageCode = course.learningLanguage;
+    // Only take the first 2 characters to set the language code.
+    this.languageCode = course.learningLanguage.substring(0, 2);
   }
 }
 

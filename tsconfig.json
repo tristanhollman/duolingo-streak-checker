@@ -26,11 +26,11 @@
         "name": "typescript-plugin-css-modules",
         "options": {
           "goToDefinition": true,
-          "classnameTransform": "camelCaseOnly",
-        },
-      },
-    ],
+          "classnameTransform": "camelCaseOnly"
+        }
+      }
+    ]
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
