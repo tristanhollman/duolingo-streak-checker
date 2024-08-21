@@ -31,6 +31,9 @@ const manuallyCorrectCountryCode = (languageCode?: string) => {
     case "en":
       // Duolingo uses the US flag for English.
       return "us";
+    case "ga":
+      // Map Gaelic to the Irish flag.
+      return "ie";
     default:
       return languageCode;
   }
