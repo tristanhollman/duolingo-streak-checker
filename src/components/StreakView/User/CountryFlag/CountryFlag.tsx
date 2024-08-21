@@ -28,6 +28,9 @@ const manuallyCorrectCountryCode = (languageCode?: string) => {
   switch (languageCode) {
     case "ja":
       return "jp";
+    case "en":
+      // Duolingo uses the US flag for English.
+      return "us";
     default:
       return languageCode;
   }
