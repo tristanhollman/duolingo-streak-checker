@@ -18,35 +18,35 @@
     ]
   },
   "dependencies": {
-    "@emotion/react": "^11.13.0",
+    "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@fontsource/roboto": "^5.0.14",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
-    "@tanstack/react-query": "^5.51.23",
+    "@tanstack/react-query": "^5.52.1",
     "flag-icons": "^7.2.3",
-    "framer-motion": "^11.3.28",
+    "framer-motion": "^11.3.30",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "usehooks-ts": "^3.1.0"
   },
   "devDependencies": {
-    "@tanstack/eslint-plugin-query": "^5.51.15",
-    "@tanstack/react-query-devtools": "^5.51.23",
-    "@types/react": "^18.3.3",
+    "@tanstack/eslint-plugin-query": "^5.52.0",
+    "@tanstack/react-query-devtools": "^5.52.1",
+    "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.1.0",
-    "@typescript-eslint/parser": "^8.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.2.0",
+    "@typescript-eslint/parser": "^8.2.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.9",
-    "husky": "^9.1.4",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "husky": "^9.1.5",
     "less": "^4.2.0",
     "lint-staged": "^15.2.9",
     "prettier": "^3.3.3",
     "typescript": "^5.5.4",
     "typescript-plugin-css-modules": "^5.1.0",
-    "vite": "^5.4.1"
+    "vite": "^5.4.2"
   }
 }
