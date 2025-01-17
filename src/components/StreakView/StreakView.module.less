@@ -31,16 +31,9 @@
 
   .streak-grid {
     grid-area: content;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
-
-    & > * {
-      flex: 1;
-      max-width: var(--streak-grid-item-max-width);
-    }
   }
 
   .pointer {
