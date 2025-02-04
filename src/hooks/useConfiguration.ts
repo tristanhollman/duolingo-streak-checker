@@ -2,9 +2,15 @@ import { useLocalStorage } from "usehooks-ts";
 import { Config, ConfigDto } from "../entities/models";
 
 export function useConfiguration() {
-  const [dto, persistConfigDto] = useLocalStorage<ConfigDto>("config", {
-    userNames: [],
-  });
+  const legacyConfig = localStorage.getItem("config");
+  const [dto, persistConfigDto] = useLocalStorage<ConfigDto>(
+    "duoling-streak-checker-config",
+    legacyConfig
+      ? JSON.parse(legacyConfig)
+      : {
+          userNames: [],
+        },
+  );
 
   const persistConfig = (config: Config) => {
     persistConfigDto({ userNames: config.userNames });
