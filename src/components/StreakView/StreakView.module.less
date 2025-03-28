@@ -31,14 +31,13 @@
 
   .streak-grid {
     grid-area: content;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
     align-items: center;
     gap: 1rem;
 
     & > * {
-      flex: 1;
       max-width: var(--streak-grid-item-max-width);
     }
   }
