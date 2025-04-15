@@ -6,6 +6,7 @@ import {
   OutMode,
 } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
+import { useMuiThemeSelection } from "../../hooks/useMuiThemeSelection";
 
 export const ParticleWrapper = ({ options }: { options: ISourceOptions }) => {
   const [init, setInit] = useState(false);
@@ -72,12 +73,11 @@ export const LineShapes = () => {
 };
 
 export const NyanCat = () => {
-  const options: ISourceOptions = useMemo(
+  const options = useMemo(
     () =>
       ({
         autoPlay: true,
         background: {
-          color: { value: "#043564" },
           image:
             "url('https://vincentgarreau.com/particles.js/assets/img/kbLd9vb_new.gif')",
           position: "0 50%",
@@ -101,10 +101,10 @@ export const NyanCat = () => {
           detectsOn: "window",
           events: {
             onClick: { enable: true, mode: "repulse" },
-            onDiv: { selectors: {}, enable: false, mode: {}, type: "circle" },
+            onDiv: { selectors: [], enable: false, mode: [], type: "circle" },
             onHover: {
               enable: false,
-              mode: {},
+              mode: [],
               parallax: { enable: false, force: 2, smooth: 10 },
             },
             resize: { delay: 0.5, enable: true },
@@ -211,8 +211,8 @@ export const NyanCat = () => {
               },
             },
           },
-          effect: { close: true, fill: true, options: {}, type: {} },
-          groups: [],
+          effect: { close: true, fill: true, options: {}, type: [] },
+          groups: {},
           move: {
             angle: { offset: 0, value: 90 },
             attract: {
@@ -392,7 +392,7 @@ export const NyanCat = () => {
         key: "nyancat2",
         name: "Nyan Cat 2",
         motion: { disable: false, reduce: { factor: 4, value: true } },
-      }) as unknown as ISourceOptions,
+      }) as ISourceOptions,
     [],
   );
 
@@ -401,6 +401,7 @@ export const NyanCat = () => {
 
 export const AnimatedNyanCat = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { theme } = useMuiThemeSelection();
 
   useEffect(() => {
     let timer: number | undefined;
@@ -411,7 +412,10 @@ export const AnimatedNyanCat = () => {
     };
 
     const scheduleNextAnimation = () => {
-      const randomInterval = Math.random() * (900000 - 60000) + 60000; // Random between 1 minute and 15 minutes
+      let randomInterval = Math.random() * (900000 - 60000) + 60000; // Random between 1 minute and 15 minutes
+      if (theme.name === "fancy") {
+        randomInterval = Math.random() * (60000 - 10000) + 10000; // Random between 10 seconds and 1 minute
+      }
       timer = setTimeout(() => {
         startAnimation();
         scheduleNextAnimation(); // Schedule the next animation
