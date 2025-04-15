@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 import { useConfiguration } from "../../hooks/useConfiguration";
 import styles from "./StreakView.module.less";
 import { User } from "./User/User";
+import { AnimatedNyanCat } from "../Particles/ParticleWrapper";
 
 export const StreakView = () => {
   const { config } = useConfiguration();
@@ -17,11 +18,14 @@ export const StreakView = () => {
 
   const StreakGrid = () => {
     return (
-      <div className={styles.streakGrid}>
-        {config.userNames.map((userName) => (
-          <User userName={userName} key={userName} />
-        ))}
-      </div>
+      <>
+        <AnimatedNyanCat />
+        <div className={styles.streakGrid}>
+          {config.userNames.map((userName) => (
+            <User userName={userName} key={userName} />
+          ))}
+        </div>
+      </>
     );
   };
 
