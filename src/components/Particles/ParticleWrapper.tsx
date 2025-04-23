@@ -422,11 +422,12 @@ export const AnimatedNyanCat = () => {
       }, randomInterval);
     };
 
+    clearTimeout(timer);
     scheduleNextAnimation();
 
     // Cleanup on unmount
     return () => clearTimeout(timer);
-  }, []);
+  }, [theme.name]);
 
   return <div>{isVisible && <NyanCat />}</div>;
 };
